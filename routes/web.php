@@ -2,6 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\walletController;
+use App\Http\Controllers\GoogleV3CaptchaController;
+
+use App\Http\Controllers\GoogleSocialiteController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,3 +20,16 @@ use App\Http\Controllers\walletController;
 Route::get('/', [walletController::class,'index'])->name('wallet');
 Route::post('addmoney', [walletController::class,'addmoney'])->name('addmoney_wallet');
 Route::get('/paymentstatus',[walletController::class,'paymentstatus'])->name('paymentstatus');
+
+// google capta v3
+Route::get('google-v3-recaptcha', [GoogleV3CaptchaController::class, 'index']);
+Route::post('validate-g-recaptcha', [GoogleV3CaptchaController::class, 'validateGCaptch']);
+
+
+// login with google
+Route::get('auth/google', [GoogleSocialiteController::class, 'redirectToGoogle']);
+Route::get('callback/google', [GoogleSocialiteController::class, 'handleCallback']);
+
+
+
+

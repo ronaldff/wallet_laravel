@@ -63,6 +63,18 @@
                                     <input type="submit" value="Submit" class="btn btn-success">
                                 </div>
                             </form>
+                            <div class="text-center mt-2">
+                                <a href="{{ url('google-v3-recaptcha') }}" class="btn btn-dark text-center">Contact Us</a>
+                            </div>
+
+                            <div class="text-center mt-2">
+                                <a href="{{ url('auth/google') }}" class="btn btn-dark text-center">
+                                    <strong>Google Login</strong>
+                                  </a>
+                               
+                            </div>
+
+                           
                         </div>
 
                         <div class="col-md-6">

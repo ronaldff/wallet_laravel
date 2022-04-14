@@ -7,16 +7,30 @@ use App\Models\Wallets;
 use Illuminate\Support\Facades\Validator;
 use Razorpay\Api\Api;
 use Redirect;
+use Illuminate\Support\Facades\App;
 
 class walletController extends Controller
 {
-    public function index(){
+    public function index(Request $request){
+        App::setLocale($request->lang);
+        session()->put('locale', $request->lang);
         $result['getWalletAmt'] = 0;
         $result['getWalletAmt'] = getWalletAmt(1);
         $result['getWalletList'] = getWalletList(1);
         $result['userDetails'] = userDetails(1);
         return view('wallet_page', $result);
     }
+
+    
+    // public function lang_change(Request $request)
+    // {
+        
+    //     $result['getWalletAmt'] = 0;
+    //     $result['getWalletAmt'] = getWalletAmt(1);
+    //     $result['getWalletList'] = getWalletList(1);
+    //     $result['userDetails'] = userDetails(1);
+    //     return view('wallet_page', $result);
+    // }
 
     public function addmoney(Request $request)
     {

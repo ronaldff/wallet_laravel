@@ -5,6 +5,7 @@ use App\Http\Controllers\walletController;
 use App\Http\Controllers\GoogleV3CaptchaController;
 
 use App\Http\Controllers\GoogleSocialiteController;
+use App\Http\Controllers\LocalizationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,6 +30,10 @@ Route::post('validate-g-recaptcha', [GoogleV3CaptchaController::class, 'validate
 // login with google
 Route::get('auth/google', [GoogleSocialiteController::class, 'redirectToGoogle']);
 Route::get('callback/google', [GoogleSocialiteController::class, 'handleCallback']);
+
+// multi languages
+// Route::get('/', [LocalizationController::class, "index"]);
+// Route::get('lang', [walletController::class, "index"])->name('LangChange');
 
 
 
